@@ -51,3 +51,79 @@ export interface EditorState {
   canvasWidth: number;
   canvasHeight: number;
 }
+
+export interface SerializedFrame {
+  id: string;
+  imageDataBase64: string;
+  delay: number;
+  width: number;
+  height: number;
+  disposalMethod: number;
+}
+
+export interface Project {
+  id: string;
+  name: string;
+  frames: SerializedFrame[];
+  captions: Caption[];
+  crop: CropConfig;
+  exportConfig: ExportConfig;
+  selectedFrameIndex: number;
+  currentFrameIndex: number;
+  canvasWidth: number;
+  canvasHeight: number;
+  createdAt: number;
+  updatedAt: number;
+  syncedAt?: number;
+  isDirty: boolean;
+}
+
+export interface ProjectMeta {
+  id: string;
+  name: string;
+  frameCount: number;
+  thumbnail?: string;
+  createdAt: number;
+  updatedAt: number;
+  syncedAt?: number;
+  isDirty: boolean;
+}
+
+export type SyncStatus = 'idle' | 'syncing' | 'error' | 'success';
+
+export type OperationType =
+  | 'project.create'
+  | 'project.update'
+  | 'project.delete'
+  | 'frame.add'
+  | 'frame.delete'
+  | 'frame.update'
+  | 'frame.reorder'
+  | 'caption.add'
+  | 'caption.update'
+  | 'caption.delete';
+
+export interface SyncOperation {
+  id: string;
+  type: OperationType;
+  projectId: string;
+  payload: unknown;
+  timestamp: number;
+  retries: number;
+  status: 'pending' | 'processing' | 'failed' | 'completed';
+  error?: string;
+}
+
+export interface NetworkStatus {
+  isOnline: boolean;
+  wasOffline: boolean;
+  since: number;
+  downlink?: number;
+  effectiveType?: string;
+}
+
+export interface PersistedState {
+  activeProjectId: string | null;
+  recentProjectIds: string[];
+  lastSavedAt: number;
+}

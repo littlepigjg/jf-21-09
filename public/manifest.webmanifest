@@ -1,0 +1,39 @@
+{
+  "name": "GIF Studio - Offline GIF Editor",
+  "short_name": "GIF Studio",
+  "description": "离线优先的GIF帧编辑器，支持帧管理、字幕、裁剪和导出",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#0f172a",
+  "theme_color": "#1e293b",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "categories": ["productivity", "photo", "utilities"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "新建项目",
+      "short_name": "新建",
+      "description": "创建一个新的GIF编辑项目",
+      "url": "/?action=new",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "打开最近项目",
+      "short_name": "最近",
+      "description": "打开最近编辑的项目",
+      "url": "/?action=recent",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

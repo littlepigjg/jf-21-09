@@ -11,6 +11,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { useEditorStore } from '@/stores/editorStore';
+import OfflineIndicator from '@/components/OfflineIndicator';
 
 export default function Toolbar() {
   const {
@@ -94,6 +95,7 @@ export default function Toolbar() {
       </div>
 
       <div className="flex items-center gap-4">
+        <OfflineIndicator />
         <div className="flex items-center gap-1">
           <button
             onClick={handlePrevFrame}
